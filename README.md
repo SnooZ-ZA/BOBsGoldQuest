@@ -1,6 +1,6 @@
 # BOBsGoldQuest
 
-ESX Gold &Gem Panning
+ESX Gold & Gem Panning
 
 # Preview
 
