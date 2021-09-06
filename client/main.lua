@@ -79,7 +79,7 @@ Citizen.CreateThread(function()
 
         for k in pairs(place) do
 
-            local plyCoords = GetEntityCoords(GetPlayerPed(-1), false)
+            local plyCoords = GetEntityCoords(PlayerPedId(), false)
             local placedist = Vdist(plyCoords.x, plyCoords.y, plyCoords.z, place[k].x, place[k].y, place[k].z)
 
             if placedist <= 1.5 then
@@ -102,7 +102,7 @@ Citizen.CreateThread(function()
 
         for k in pairs(gemplace) do
 
-            local plyCoords = GetEntityCoords(GetPlayerPed(-1), false)
+            local plyCoords = GetEntityCoords(PlayerPedId(), false)
             local gemplacedist = Vdist(plyCoords.x, plyCoords.y, plyCoords.z, gemplace[k].x, gemplace[k].y, gemplace[k].z)
 
             if gemplacedist <= 1.5 then
@@ -151,14 +151,14 @@ AddEventHandler('bobs_gold:success', function (source)
 								})
 								attachModel = GetHashKey('prop_kitch_pot_fry')
 								boneNumber = 26613
-								SetCurrentPedWeapon(GetPlayerPed(-1), 0xA2719263) 
-								local bone = GetPedBoneIndex(GetPlayerPed(-1), boneNumber)
+								SetCurrentPedWeapon(PlayerPedId(), 0xA2719263) 
+								local bone = GetPedBoneIndex(PlayerPedId(), boneNumber)
 								RequestModel(attachModel)
 								while not HasModelLoaded(attachModel) do
 								Citizen.Wait(100)
 								end
 								attachedProp = CreateObject(attachModel, 1.0, 1.0, 1.0, 1, 1, 0)
-								AttachEntityToEntity(attachedProp, GetPlayerPed(-1), bone, 0.10, 0.10, 0.12, 10.00, 30.990, 220.080, 1, 1, 0, 1, 0, 1)
+								AttachEntityToEntity(attachedProp, PlayerPedId(), bone, 0.10, 0.10, 0.12, 10.00, 30.990, 220.080, 1, 1, 0, 1, 0, 1)
 				Citizen.Wait(15000)
 				if DoesEntityExist(attachedProp) then
 				DeleteEntity(attachedProp)
@@ -201,14 +201,14 @@ AddEventHandler('bobs_gold:success_gem', function (source)
 								})
 								attachModel = GetHashKey('prop_kitch_pot_fry')
 								boneNumber = 26613
-								SetCurrentPedWeapon(GetPlayerPed(-1), 0xA2719263) 
-								local bone = GetPedBoneIndex(GetPlayerPed(-1), boneNumber)
+								SetCurrentPedWeapon(PlayerPedId(), 0xA2719263) 
+								local bone = GetPedBoneIndex(PlayerPedId(), boneNumber)
 								RequestModel(attachModel)
 								while not HasModelLoaded(attachModel) do
 								Citizen.Wait(100)
 								end
 								attachedProp = CreateObject(attachModel, 1.0, 1.0, 1.0, 1, 1, 0)
-								AttachEntityToEntity(attachedProp, GetPlayerPed(-1), bone, 0.10, 0.10, 0.12, 10.00, 30.990, 220.080, 1, 1, 0, 1, 0, 1)
+								AttachEntityToEntity(attachedProp, PlayerPedId(), bone, 0.10, 0.10, 0.12, 10.00, 30.990, 220.080, 1, 1, 0, 1, 0, 1)
 				Citizen.Wait(15000)
 				if DoesEntityExist(attachedProp) then
 				DeleteEntity(attachedProp)
@@ -224,7 +224,7 @@ Citizen.CreateThread(function()
 
         for k in pairs(goldItems) do
 
-            local plyCoords = GetEntityCoords(GetPlayerPed(-1), false)
+            local plyCoords = GetEntityCoords(PlayerPedId(), false)
             local goldItemsdist = Vdist(plyCoords.x, plyCoords.y, plyCoords.z, goldItems[k].x, goldItems[k].y, goldItems[k].z)
 
             if goldItemsdist <= 1.5 then
@@ -245,7 +245,7 @@ Citizen.CreateThread(function()
 
         for k in pairs(gemItems) do
 
-            local plyCoords = GetEntityCoords(GetPlayerPed(-1), false)
+            local plyCoords = GetEntityCoords(PlayerPedId(), false)
             local goldItemsdist = Vdist(plyCoords.x, plyCoords.y, plyCoords.z, gemItems[k].x, gemItems[k].y, gemItems[k].z)
 
             if goldItemsdist <= 1.5 then
@@ -414,7 +414,7 @@ AddEventHandler('bobs_gold:spawnPress', function()
 end)
 
 function AddPress()
-	local ped= GetPlayerPed(-1)
+	local ped= PlayerPedId()
     local coords = GetOffsetFromEntityInWorldCoords(ped, 0.0, 1.2, 0.0)
     local heading = GetEntityHeading(ped)
 	local pedcoords = GetEntityCoords(ped)
